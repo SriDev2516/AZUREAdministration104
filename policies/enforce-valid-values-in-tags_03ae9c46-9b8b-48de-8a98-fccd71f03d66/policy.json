@@ -1,0 +1,44 @@
+{
+ "properties": {
+  "displayName": "enforce-valid-values-in-tags",
+  "policyType": "Custom",
+  "mode": "All",
+  "metadata": {
+   "category": "Tags",
+   "createdBy": "8d66c3cd-d3af-4325-8483-1f06b35ea158",
+   "createdOn": "2022-12-14T07:16:17.3249478Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "anyof": [
+     {
+      "field": "tags[Duration]",
+      "notIn": [
+       "LT",
+       "ST"
+      ]
+     },
+     {
+      "field": "tags[ENV]",
+      "notIn": [
+       "DEV",
+       "INT",
+       "UAT",
+       "PROD",
+       "LAB"
+      ]
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/subscriptions/d85cf3d0-2cde-4be5-8f5c-4f1649187f25/providers/Microsoft.Authorization/policyDefinitions/03ae9c46-9b8b-48de-8a98-fccd71f03d66",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "03ae9c46-9b8b-48de-8a98-fccd71f03d66"
+}

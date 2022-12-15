@@ -1,0 +1,38 @@
+{
+ "properties": {
+  "displayName": "add-created-on-date",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Add created on date tag and fill it with the current date for every resource created in this subscription",
+  "metadata": {
+   "category": "Tags",
+   "createdBy": "8d66c3cd-d3af-4325-8483-1f06b35ea158",
+   "createdOn": "2022-12-14T07:04:29.6247532Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "tags['CreatedOnDate']",
+      "exists": false
+     }
+    ]
+   },
+   "then": {
+    "effect": "append",
+    "details": [
+     {
+      "field": "tags['CreatedOnDate']",
+      "value": "[utcNow()]"
+     }
+    ]
+   }
+  }
+ },
+ "id": "/subscriptions/d85cf3d0-2cde-4be5-8f5c-4f1649187f25/providers/Microsoft.Authorization/policyDefinitions/804cabef-26fb-4721-b2d5-5222b42c6502",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "804cabef-26fb-4721-b2d5-5222b42c6502"
+}

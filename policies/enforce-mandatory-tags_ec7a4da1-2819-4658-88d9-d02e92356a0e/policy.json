@@ -1,0 +1,35 @@
+{
+ "properties": {
+  "displayName": "enforce-mandatory-tags",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "metadata": {
+   "category": "Tags",
+   "createdBy": "8d66c3cd-d3af-4325-8483-1f06b35ea158",
+   "createdOn": "2022-12-14T07:12:26.0859666Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "anyOf": [
+     {
+      "field": "tags[Duration]",
+      "exists": false
+     },
+     {
+      "field": "tags[ENV]",
+      "exists": false
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/subscriptions/d85cf3d0-2cde-4be5-8f5c-4f1649187f25/providers/Microsoft.Authorization/policyDefinitions/ec7a4da1-2819-4658-88d9-d02e92356a0e",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "ec7a4da1-2819-4658-88d9-d02e92356a0e"
+}
